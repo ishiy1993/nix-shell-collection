@@ -40,3 +40,20 @@ import /path/to/nix-shell-collection/python/shell.nix {
 }
 ```
 
+### Rust + Python
+
+```nix
+{ pkgs ? import <unstable> {} }:
+
+let
+  python-shell = import /path/to/nix-shell-collection/python/shell.nix { pkgs = pkgs; };
+  rust-shell = import /path/to/nix-shell-collection/rust/shell.nix { pkgs = pkgs; };
+in
+pkgs.mkShell {
+  buildInputs = [
+    python-shell.buildInputs
+    rust-shell.buildInputs
+  ];
+}
+```
+
