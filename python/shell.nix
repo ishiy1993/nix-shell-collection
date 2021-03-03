@@ -10,5 +10,6 @@ pkgs.mkShell {
     py.pkgs.python-language-server
     py.pkgs.jedi
     py.pkgs.yapf
+    py.pkgs.pytest
   ];
 }
